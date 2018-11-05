@@ -49,5 +49,9 @@ namespace Org.Gojul.Validation
             return hashCode;
         }
 
+        public override string ToString()
+        {
+            return "[ UiTarget: " + UiTarget + " - Message: " + Message + " ]";
+        }
     }
 }
