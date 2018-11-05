@@ -31,7 +31,11 @@ namespace Org.Gojul.Validation
         {
             get
             {
-                return messages.AsReadOnly();
+                // We need this as the container may be used in an async/await context.
+                lock (this.messages)
+                {
+                    return messages.AsReadOnly();
+                }
             }
         }
 
@@ -42,7 +46,7 @@ namespace Org.Gojul.Validation
         {
             get
             {
-                return messages.Count > 0;
+                return Messages.Count > 0;
             }
         }
 
@@ -54,7 +58,12 @@ namespace Org.Gojul.Validation
         public void AddError(GojulValidationErrorMessage<K, V> msg)
         {
             Condition.Requires(msg).IsNotNull();
-            this.messages.Add(msg);
+
+            // We need this as the container may be used in an async/await context.
+            lock (this.messages)
+            {
+                this.messages.Add(msg);
+            }
         }
 
         /// <summary>
