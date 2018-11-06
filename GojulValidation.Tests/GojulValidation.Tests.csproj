@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Validation\Validation.csproj" />
+    <ProjectReference Include="..\GojulValidation\GojulValidation.csproj" />
   </ItemGroup>
 
 </Project>
