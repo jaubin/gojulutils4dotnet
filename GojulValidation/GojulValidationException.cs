@@ -12,9 +12,9 @@ namespace Org.Gojul.Validation
     /// <typeparam name="K">the type of the UI identifier widgets where stuff must be identified.</typeparam>
     public class GojulValidationException<K, V> : Exception
     {
-	/// <summary>
-	/// Constructor.
-	/// </summary>
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public GojulValidationException()
         {
         }
@@ -31,7 +31,7 @@ namespace Org.Gojul.Validation
         /// Constructor.
         /// </summary>
         /// <param name="message">the error message.</param>
-	/// <param name="innerException">the root exception.</param>
+        /// <param name="innerException">the root exception.</param>
         public GojulValidationException(string message, Exception innerException): base(message, innerException)
         {
         }
