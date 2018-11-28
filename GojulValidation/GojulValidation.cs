@@ -40,7 +40,7 @@ namespace Org.Gojul.Validation
             {
                 tasks.Add(v.ValidateAsync(element, errorMessageContainer));
             }
-            await Task.WhenAll(tasks);
+            await Task.WhenAll(tasks).ConfigureAwait(false);
 
             if (errorMessageContainer.HasErrors)
             {
