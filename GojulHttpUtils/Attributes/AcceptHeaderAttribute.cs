@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GojulHttpUtils.Attributes
+namespace Org.Gojul.Http.Attributes
 {
     /// <summary>
     /// Class <code>AcceptHeaderAttribute</code> is an ASP Net Core filter

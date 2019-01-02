@@ -1,4 +1,4 @@
-﻿using GojulHttpUtils.Attributes;
+﻿using Org.Gojul.Http.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Routing;
@@ -9,7 +9,7 @@ using System.Text;
 
 using Xunit;
 
-namespace GojulHttpUtils.Tests.Attributes
+namespace Org.Gojul.Http.Tests.Attributes
 {
     public class AcceptHeaderAttributeTest
     {
