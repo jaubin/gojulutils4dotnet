@@ -20,6 +20,12 @@ namespace Org.Gojul.Extensions.Tests
         }
 
         [Fact]
+        public void TestParseEnumWithInvalidFigureThrowsException()
+        {
+            Assert.Throws<ArgumentException>(() => StringExtensions.ParseEnum<Foo>("67"));
+        }
+
+        [Fact]
         public void TestParseEnum()
         {
             Assert.Equal(Foo.Foo, "Foo".ParseEnum<Foo>());

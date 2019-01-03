@@ -26,7 +26,13 @@ namespace Org.Gojul.Extensions
             // This method is inspired by :
             // https://stackoverflow.com/questions/32542356/how-to-save-enum-in-database-as-string
             Condition.Requires(value).IsNotNull();
-            return (T)Enum.Parse(typeof(T), value, true);
+            
+            if (!Enum.TryParse<T>(value, true, out T result) || !Enum.IsDefined(typeof(T), result))
+            {
+                throw new ArgumentException(string.Format("Unrecognized value {0} for type {1}", value, typeof(T)));
+            }
+
+            return result;
         }
     }
 }
