@@ -14,6 +14,7 @@ namespace Org.Gojul.Http.Attributes
     /// which enables you to filter a route based on the <code>Accept</code>
     /// header of the request. Sadly Microsoft does not provide a reliable way to 
     /// perform this filtering as of now.
+    /// Note for Swagger users : check https://github.com/domaindrivendev/Swashbuckle/issues/142
     /// </summary>
     public class AcceptHeaderAttribute : ActionMethodSelectorAttribute
     {
@@ -42,7 +43,7 @@ namespace Org.Gojul.Http.Attributes
             Condition.Requires(routeContext).IsNotNull();
 
             var accept = routeContext.HttpContext.Request.Headers
-                .FirstOrDefault(x => AcceptHeader.Equals(x.Key, StringComparison.InvariantCultureIgnoreCase)).Key;
+                .FirstOrDefault(x => AcceptHeader.Equals(x.Key, StringComparison.InvariantCultureIgnoreCase)).Value.FirstOrDefault();
             if (accept == null) return false;
 
             var acceptWithoutFormat = accept;

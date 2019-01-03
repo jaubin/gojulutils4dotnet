@@ -64,7 +64,7 @@ namespace Org.Gojul.Http.Tests.Attributes
             headerDictionary["accept"] = "windowssucks";
 
             var routeContext = CreateRouteContext(headerDictionary);
-            Assert.False(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
+            Assert.True(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace Org.Gojul.Http.Tests.Attributes
             headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "windowssucks";
 
             var routeContext = CreateRouteContext(headerDictionary);
-            Assert.False(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
+            Assert.True(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace Org.Gojul.Http.Tests.Attributes
             var headerDictionary = new HeaderDictionary();
             headerDictionary["foo"] = "bar";
             headerDictionary["linux"] = "rocks";
-            headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "microsoft+dotnetsucks";
+            headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "dotnetsucks+microsoft";
 
             var routeContext = CreateRouteContext(headerDictionary);
             Assert.False(new AcceptHeaderAttribute("   windowssucks   ").IsValidForRequest(routeContext, new ActionDescriptor()));
@@ -97,10 +97,10 @@ namespace Org.Gojul.Http.Tests.Attributes
             var headerDictionary = new HeaderDictionary();
             headerDictionary["foo"] = "bar";
             headerDictionary["linux"] = "rocks";
-            headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "microsoft+windowssucks";
+            headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "windowssucks+microsoft";
 
             var routeContext = CreateRouteContext(headerDictionary);
-            Assert.False(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
+            Assert.True(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
         }
 
         [Fact]
@@ -109,10 +109,10 @@ namespace Org.Gojul.Http.Tests.Attributes
             var headerDictionary = new HeaderDictionary();
             headerDictionary["foo"] = "bar";
             headerDictionary["linux"] = "rocks";
-            headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "microsoft+WindowsSucks";
+            headerDictionary[AcceptHeaderAttribute.AcceptHeader] = "WindowsSucks+microsoft";
 
             var routeContext = CreateRouteContext(headerDictionary);
-            Assert.False(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
+            Assert.True(new AcceptHeaderAttribute("windowssucks").IsValidForRequest(routeContext, new ActionDescriptor()));
         }
 
         private RouteContext CreateRouteContext(IHeaderDictionary dictionary)
