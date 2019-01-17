@@ -62,15 +62,7 @@ namespace Org.Gojul.Extensions
             var count2 = other.Count;
             if (count1 != count2) return false;
 
-            for (int i = 0; i < count1; i++)
-            {
-                if (!EqualityComparer<T>.Default.Equals(list[i], other[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return list.SequenceEqual(other);
         }
     }
 }
