@@ -51,5 +51,26 @@ namespace Org.Gojul.Extensions.Tests
             Assert.False(new[] { "a", "b", "c" }.ToList().ListEquals(new[] { "a", "b", null }));
             Assert.False(new[] { "a", "b", "c" }.ToList().ListEquals(new[] { "b", "a", "c" }));
         }
+
+        [Fact]
+        public void TestDictEquals()
+        {
+            var dic1 = new Dictionary<string, string> { { "linux", "good" }, { "macos", "bad" }, { "windows", "ugly" } };
+            var dic2 = new Dictionary<string, string> { { "linux", "good" }, { "freebsd", "correct" },
+                { "macos", "bad" }, { "windows", "ugly" } };
+            var dic3 = new Dictionary<string, string> { { "linux", "good" }, { "freebsd", "correct" }, { "windows", "ugly" } };
+            var dic4 = new Dictionary<string, string> { { "linux", "good" }, { "macos", "bad" }, { "windows", "awful" } };
+            var dic5 = new Dictionary<string, string> { { "linux", "good" }, { "macos", "bad" }, { "windows", null } };
+            var dic6 = new Dictionary<string, string> { { "linux", "good" }, { "macos", "bad" }, { "windows", "ugly" } };
+
+            Assert.True(CollectionExtensions.DictEquals((IDictionary<string, string>)null, (IDictionary<string, string>)null));
+            Assert.False(CollectionExtensions.DictEquals((IDictionary<string, string>)null, dic1));
+            Assert.False(dic1.DictEquals(null));
+            Assert.False(dic1.DictEquals(dic2));
+            Assert.False(dic1.DictEquals(dic3));
+            Assert.False(dic1.DictEquals(dic4));
+            Assert.False(dic1.DictEquals(dic5));
+            Assert.True(dic1.DictEquals(dic6));
+        }
     }
 }
