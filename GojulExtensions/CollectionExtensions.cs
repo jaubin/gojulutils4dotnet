@@ -71,14 +71,14 @@ namespace Org.Gojul.Extensions
         /// <code>false</code> otherwise. Note that this method will probably not work for dictionary
         /// of collections since C# does not implement Equals/HashCode for collections properly...
         /// </summary>
-        /// <typeparam name="K">the key type. It must implement properly the Equals method.</typeparam>
-        /// <typeparam name="V">the value type. It must implement properly the Equals method.</typeparam>
+        /// <typeparam name="TK">the key type. It must implement properly the Equals method.</typeparam>
+        /// <typeparam name="TV">the value type. It must implement properly the Equals method.</typeparam>
         /// <param name="dictionary">the first dictionary.</param>
         /// <param name="other">the second dictionary.</param>
         /// <returns><code>true</code> if <code>dictionary</code> and <code>other</code>
         /// are logically equal, i.e. they have the same size and the same key/value pairs,
         /// <code>false</code> otherwise.</returns>
-        public static bool DictEquals<K, V>(this IDictionary<K, V> dictionary, IDictionary<K, V> other)
+        public static bool DictEquals<TK, TV>(this IDictionary<TK, TV> dictionary, IDictionary<TK, TV> other)
         {
             if (dictionary is null) return other is null;
             if (other is null) return false;
