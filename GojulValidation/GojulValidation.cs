@@ -18,13 +18,13 @@ namespace Org.Gojul.Validation
         /// fails.
         /// </summary>
         /// <typeparam name="T">the type of the element to validate.</typeparam>
-        /// <typeparam name="K">the type of the UI element keys on which errors must be displayed.</typeparam>
-        /// <typeparam name="V">the type of the error messages.</typeparam>
+        /// <typeparam name="TK">the type of the UI element keys on which errors must be displayed.</typeparam>
+        /// <typeparam name="TV">the type of the error messages.</typeparam>
         /// <param name="element">the element to validate.</param>
         /// <param name="validators">the validators.</param>
         /// <exception cref="ArgumentNullException">if any of the method parameters is <code>null</code>.</exception>
-        /// <exception cref="GojulValidationException{K, V}">if the validation fails.</exception>
-        public static async Task ValidateAsync<T, K, V>(T element, IEnumerable<IGojulValidator<T, K, V>> validators)
+        /// <exception cref="GojulValidationException{TK, TV}">if the validation fails.</exception>
+        public static async Task ValidateAsync<T, TK, TV>(T element, IEnumerable<IGojulValidator<T, TK, TV>> validators)
         {
             if (element == null)
             {
@@ -33,7 +33,7 @@ namespace Org.Gojul.Validation
 
             Condition.Requires(validators).IsNotNull();
 
-            var errorMessageContainer = new GojulValidationErrorMessageContainer<K, V>();
+            var errorMessageContainer = new GojulValidationErrorMessageContainer<TK, TV>();
 
             var tasks = new List<Task>();
             foreach (var v in validators)
@@ -44,7 +44,7 @@ namespace Org.Gojul.Validation
 
             if (errorMessageContainer.HasErrors)
             {
-                throw new GojulValidationException<K, V>("Validation failed", errorMessageContainer);
+                throw new GojulValidationException<TK, TV>("Validation failed", errorMessageContainer);
             }
         }
     }

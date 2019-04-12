@@ -8,9 +8,9 @@ namespace Org.Gojul.Validation
     /// unitary validations of business rules on input objects.
     /// </summary>
     /// <typeparam name="T">the type of the object to validate.</typeparam>
-    /// <typeparam name="K">the type of the UI identifier widgets where stuff must be identified.</typeparam>
-    /// <typeparam name="V">the type of the error messages produced.</typeparam>
-    public interface IGojulValidator<T, K, V>
+    /// <typeparam name="TK">the type of the UI identifier widgets where stuff must be identified.</typeparam>
+    /// <typeparam name="TV">the type of the error messages produced.</typeparam>
+    public interface IGojulValidator<T, TK, TV>
     {
         /// <summary>
         /// Validate the element <code>element</code> against the rule contained in this validator. If 
@@ -18,7 +18,7 @@ namespace Org.Gojul.Validation
         /// </summary>
         /// <param name="element">the element to validate.</param>
         /// <param name="errorMessageContainer">the error message container used.</param>
-        Task ValidateAsync(T element, GojulValidationErrorMessageContainer<K, V> errorMessageContainer);
+        Task ValidateAsync(T element, GojulValidationErrorMessageContainer<TK, TV> errorMessageContainer);
     }
 
     

@@ -7,27 +7,27 @@ namespace Org.Gojul.Validation
 {
     /// <summary>
     /// Class <code>GojulValidationErrorMessageContainer</code> contains a list
-    /// of <see cref="GojulValidationErrorMessage{K, V}"/> instances. This way, it
+    /// of <see cref="GojulValidationErrorMessage{TK, TV}"/> instances. This way, it
     /// makes it easier to collect all the errors encountered.
     /// </summary>
-    /// <typeparam name="K">the type of UI identifiers.</typeparam>
-    /// <typeparam name="V">the type of messages.</typeparam>
-    public class GojulValidationErrorMessageContainer<K, V>
+    /// <typeparam name="TK">the type of UI identifiers.</typeparam>
+    /// <typeparam name="TV">the type of messages.</typeparam>
+    public class GojulValidationErrorMessageContainer<TK, TV>
     {
-        private List<GojulValidationErrorMessage<K, V>> messages;
+        private List<GojulValidationErrorMessage<TK, TV>> messages;
 
         /// <summary>
         /// Constructor.
         /// </summary>
         public GojulValidationErrorMessageContainer()
         {
-            this.messages = new List<GojulValidationErrorMessage<K, V>>();
+            this.messages = new List<GojulValidationErrorMessage<TK, TV>>();
         }
 
         /// <summary>
         /// Return the list of messages.
         /// </summary>
-        public IList<GojulValidationErrorMessage<K, V>> Messages
+        public IList<GojulValidationErrorMessage<TK, TV>> Messages
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Org.Gojul.Validation
         /// </summary>
         /// <param name="msg">the error message to add.</param>
         /// <exception cref="ArgumentNullException">if <code>msg</code> is <code>null</code>.</exception>
-        public void AddError(GojulValidationErrorMessage<K, V> msg)
+        public void AddError(GojulValidationErrorMessage<TK, TV> msg)
         {
             Condition.Requires(msg).IsNotNull();
 
@@ -74,7 +74,7 @@ namespace Org.Gojul.Validation
         /// <param name="msg">the message generator used to generate the error message.</param>
         /// <exception cref="ArgumentNullException">if <code>msg</code> is <code>null</code>,
         /// or if it generates a <code>null</code> error message.</exception>
-        public void AddError(bool assertion, Func<GojulValidationErrorMessage<K, V>> msg)
+        public void AddError(bool assertion, Func<GojulValidationErrorMessage<TK, TV>> msg)
         {
             Condition.Requires(msg).IsNotNull();
 
@@ -87,14 +87,14 @@ namespace Org.Gojul.Validation
 
         public override bool Equals(object obj)
         {
-            var container = obj as GojulValidationErrorMessageContainer<K, V>;
+            var container = obj as GojulValidationErrorMessageContainer<TK, TV>;
             return container != null &&
-                   EqualityComparer<IList<GojulValidationErrorMessage<K, V>>>.Default.Equals(messages, container.messages);
+                   EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.Equals(messages, container.messages);
         }
 
         public override int GetHashCode()
         {
-            return -99712259 + EqualityComparer<IList<GojulValidationErrorMessage<K, V>>>.Default.GetHashCode(messages);
+            return -99712259 + EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.GetHashCode(messages);
         }
 
         public override string ToString()

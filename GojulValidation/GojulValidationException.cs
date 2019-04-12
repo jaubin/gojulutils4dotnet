@@ -9,8 +9,8 @@ namespace Org.Gojul.Validation
     /// of exceptions thrown when business validation error are encountered.
     /// </summary>
     /// <typeparam name="T">the type of the object to validate.</typeparam>
-    /// <typeparam name="K">the type of the UI identifier widgets where stuff must be identified.</typeparam>
-    public class GojulValidationException<K, V> : Exception
+    /// <typeparam name="TK">the type of the UI identifier widgets where stuff must be identified.</typeparam>
+    public class GojulValidationException<TK, TV> : Exception
     {
         /// <summary>
         /// Constructor.
@@ -43,7 +43,7 @@ namespace Org.Gojul.Validation
         /// </summary>
         /// <param name="errorMessageContainer">the error message container which is the cause of the error.</param>
         /// <exception cref="ArgumentNullException">if <code>errorMessageContainer</code> is <code>null</code></exception>.
-        public GojulValidationException(GojulValidationErrorMessageContainer<K, V> errorMessageContainer) : this("A validation error occurred", errorMessageContainer)
+        public GojulValidationException(GojulValidationErrorMessageContainer<TK, TV> errorMessageContainer) : this("A validation error occurred", errorMessageContainer)
         {
 
         }
@@ -54,12 +54,12 @@ namespace Org.Gojul.Validation
         /// <param name="message">the error message.</param>
         /// <param name="errorMessageContainer">the error message container which is the cause of the error.</param>
         /// <exception cref="ArgumentNullException">if <code>errorMessageContainer</code> is <code>null</code></exception>.
-        public GojulValidationException(string message, GojulValidationErrorMessageContainer<K, V> errorMessageContainer) : base(message)
+        public GojulValidationException(string message, GojulValidationErrorMessageContainer<TK, TV> errorMessageContainer) : base(message)
         {
             Condition.Requires(errorMessageContainer).IsNotNull();
             this.ErrorMessageContainer = errorMessageContainer;
         }
 
-        public GojulValidationErrorMessageContainer<K, V> ErrorMessageContainer { get; }
+        public GojulValidationErrorMessageContainer<TK, TV> ErrorMessageContainer { get; }
     }
 }
