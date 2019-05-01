@@ -14,14 +14,14 @@ namespace Org.Gojul.Validation
     /// <typeparam name="TV">the type of messages.</typeparam>
     public class GojulValidationErrorMessageContainer<TK, TV>
     {
-        private List<GojulValidationErrorMessage<TK, TV>> messages;
+        private List<GojulValidationErrorMessage<TK, TV>> _messages;
 
         /// <summary>
         /// Constructor.
         /// </summary>
         public GojulValidationErrorMessageContainer()
         {
-            this.messages = new List<GojulValidationErrorMessage<TK, TV>>();
+            this._messages = new List<GojulValidationErrorMessage<TK, TV>>();
         }
 
         /// <summary>
@@ -32,9 +32,9 @@ namespace Org.Gojul.Validation
             get
             {
                 // We need this as the container may be used in an async/await context.
-                lock (this.messages)
+                lock (this._messages)
                 {
-                    return messages.AsReadOnly();
+                    return _messages.AsReadOnly();
                 }
             }
         }
@@ -60,9 +60,9 @@ namespace Org.Gojul.Validation
             Condition.Requires(msg).IsNotNull();
 
             // We need this as the container may be used in an async/await context.
-            lock (this.messages)
+            lock (this._messages)
             {
-                this.messages.Add(msg);
+                this._messages.Add(msg);
             }
         }
 
@@ -89,17 +89,17 @@ namespace Org.Gojul.Validation
         {
             var container = obj as GojulValidationErrorMessageContainer<TK, TV>;
             return container != null &&
-                   EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.Equals(messages, container.messages);
+                   EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.Equals(_messages, container._messages);
         }
 
         public override int GetHashCode()
         {
-            return -99712259 + EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.GetHashCode(messages);
+            return -99712259 + EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.GetHashCode(_messages);
         }
 
         public override string ToString()
         {
-            return this.messages.ToString();
+            return this._messages.ToString();
         }
     }
 }
