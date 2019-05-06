@@ -85,18 +85,6 @@ namespace Org.Gojul.Validation
             }
         }
 
-        public override bool Equals(object obj)
-        {
-            var container = obj as GojulValidationErrorMessageContainer<TK, TV>;
-            return container != null &&
-                   EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.Equals(_messages, container._messages);
-        }
-
-        public override int GetHashCode()
-        {
-            return -99712259 + EqualityComparer<IList<GojulValidationErrorMessage<TK, TV>>>.Default.GetHashCode(_messages);
-        }
-
         public override string ToString()
         {
             return this._messages.ToString();
