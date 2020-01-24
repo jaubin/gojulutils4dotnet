@@ -1,13 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Org.Gojul.Validation</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NoWarn>CA1062</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Conditions.NetStandard" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
     <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
