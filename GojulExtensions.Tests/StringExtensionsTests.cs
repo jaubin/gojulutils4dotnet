@@ -32,5 +32,15 @@ namespace Org.Gojul.Extensions.Tests
             Assert.Equal(Foo.Bar, "bar".ParseEnum<Foo>());
             Assert.Throws<ArgumentException>(() => "linux".ParseEnum<Foo>());
         }
+
+        [Fact]
+        public void TestContainsSpaces()
+        {
+            Assert.Throws<ArgumentNullException>(() => StringExtensions.ContainsSpaces(null));
+            Assert.True("linux\trocks".ContainsSpaces());
+            Assert.True("linux\nrocks".ContainsSpaces());
+            Assert.True("linux\n   \trocks".ContainsSpaces());
+            Assert.False("kderocks".ContainsSpaces());
+        }
     }
 }

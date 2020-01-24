@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Text.RegularExpressions;
 using Conditions;
 
 namespace Org.Gojul.Extensions
@@ -33,6 +33,21 @@ namespace Org.Gojul.Extensions
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Return <code>true</code> if <code>value</code> contains spaces, <code>false</code>
+        /// otherwise. This covers all kind of spaces. Beware that this method can be quite slow
+        /// as it has to rely on regexps.
+        /// </summary>
+        /// <param name="value">the value to test.</param>
+        /// <returns><code>true</code> if <code>value</code> contains spaces, <code>false</code>
+        /// otherwise.</returns>
+        /// <exception cref="ArgumentNullException">if <code>value</code> is <code>null</code>.</exception>
+        public static bool ContainsSpaces(this string value)
+        {
+            Condition.Requires(value).IsNotNull();
+            return Regex.IsMatch(value, @"\s");
         }
     }
 }
