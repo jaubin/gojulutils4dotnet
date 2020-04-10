@@ -14,7 +14,7 @@ namespace Org.Gojul.Validation
     /// <typeparam name="TV">the type of messages.</typeparam>
     public class GojulValidationErrorMessageContainer<TK, TV>
     {
-        private List<GojulValidationErrorMessage<TK, TV>> _messages;
+        private readonly List<GojulValidationErrorMessage<TK, TV>> _messages;
 
         /// <summary>
         /// Constructor.

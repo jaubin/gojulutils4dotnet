@@ -35,8 +35,7 @@ namespace Org.Gojul.Validation
 
         public override bool Equals(object obj)
         {
-            var message = obj as GojulValidationErrorMessage<TK, TV>;
-            return message != null &&
+            return obj is GojulValidationErrorMessage<TK, TV> message &&
                    EqualityComparer<TK>.Default.Equals(UiTarget, message.UiTarget) &&
                    EqualityComparer<TV>.Default.Equals(Message, message.Message);
         }
