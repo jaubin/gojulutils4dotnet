@@ -1,12 +1,9 @@
-﻿using Org.Gojul.Http.Attributes;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Routing;
 using Moq;
+using Org.Gojul.Http.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Xunit;
 
 namespace Org.Gojul.Http.Tests.Attributes

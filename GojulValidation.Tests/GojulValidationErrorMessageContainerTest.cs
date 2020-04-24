@@ -1,8 +1,6 @@
 ﻿using System;
 using Xunit;
 
-using Org.Gojul.Validation;
-
 namespace Org.Gojul.Validation.Tests
 {
     public class GojulValidationErrorMessageContainerTest

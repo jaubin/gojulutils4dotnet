@@ -1,4 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-    
-[assembly:InternalsVisibleTo("GojulHttpUtils.Tests")]
+
+[assembly: InternalsVisibleTo("GojulHttpUtils.Tests")]
 

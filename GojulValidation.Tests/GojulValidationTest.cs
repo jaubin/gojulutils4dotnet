@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Moq;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-
-using System.Linq;
-
-using Moq;
-
-using Org.Gojul.Validation;
 
 namespace Org.Gojul.Validation.Tests
 {
@@ -26,7 +21,7 @@ namespace Org.Gojul.Validation.Tests
         [Fact]
         public async Task TestValidateAsyncWithNullObjectThrowsException()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => GojulValidation.ValidateAsync((string) null,
+            await Assert.ThrowsAsync<ArgumentNullException>(() => GojulValidation.ValidateAsync((string)null,
                 new[] { BuildValidator().Object, BuildValidator().Object }.ToList()));
         }
 
@@ -44,9 +39,9 @@ namespace Org.Gojul.Validation.Tests
             var validator2 = BuildValidator();
             var validator3 = BuildValidator();
 
-            
+
             await GojulValidation.ValidateAsync("hello", new[] { validator1.Object, validator2.Object, validator3.Object });
-            
+
 
             CheckValidator("hello", validator1);
             CheckValidator("hello", validator2);

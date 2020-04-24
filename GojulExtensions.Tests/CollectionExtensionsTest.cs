@@ -1,8 +1,7 @@
 using System;
-using Xunit;
-
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using Xunit;
 
 namespace Org.Gojul.Extensions.Tests
 {
@@ -40,8 +39,8 @@ namespace Org.Gojul.Extensions.Tests
         [Fact]
         public void TestListEquals()
         {
-            Assert.True(CollectionExtensions.ListEquals((List<string>) null, (List<string>) null));
-            Assert.False(new[] { "a", "b", "c" }.ToList().ListEquals( (List<string>)null));
+            Assert.True(CollectionExtensions.ListEquals((List<string>)null, (List<string>)null));
+            Assert.False(new[] { "a", "b", "c" }.ToList().ListEquals((List<string>)null));
             Assert.False(CollectionExtensions.ListEquals((List<string>)null, new[] { "a", "b", "c" }.ToList()));
             Assert.False(new[] { "a", "b", "c" }.ToList().ListEquals(new[] { "a", "b" }));
             Assert.False(new[] { "a", "b" }.ToList().ListEquals(new[] { "a", "b", "c" }));

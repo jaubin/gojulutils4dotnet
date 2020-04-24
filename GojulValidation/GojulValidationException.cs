@@ -1,6 +1,5 @@
-﻿using System;
-
-using Conditions;
+﻿using Conditions;
+using System;
 
 namespace Org.Gojul.Validation
 {
@@ -18,24 +17,24 @@ namespace Org.Gojul.Validation
         public GojulValidationException()
         {
         }
-  
+
         /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="message">the error message.</param>
-        public GojulValidationException(string message): base(message)
+        public GojulValidationException(string message) : base(message)
         {
         }
-   
+
         /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="message">the error message.</param>
         /// <param name="innerException">the root exception.</param>
-        public GojulValidationException(string message, Exception innerException): base(message, innerException)
+        public GojulValidationException(string message, Exception innerException) : base(message, innerException)
         {
         }
-    
+
 
 
         /// <summary>

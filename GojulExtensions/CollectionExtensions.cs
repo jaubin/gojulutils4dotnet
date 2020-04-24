@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Conditions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Conditions;
 
 namespace Org.Gojul.Extensions
 {
