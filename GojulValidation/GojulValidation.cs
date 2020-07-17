@@ -34,12 +34,10 @@ namespace Org.Gojul.Validation
 
             var errorMessageContainer = new GojulValidationErrorMessageContainer<TK, TV>();
 
-            var tasks = new List<Task>();
             foreach (var v in validators)
             {
-                tasks.Add(v.ValidateAsync(element, errorMessageContainer));
+                await v.ValidateAsync(element, errorMessageContainer).ConfigureAwait(false);
             }
-            await Task.WhenAll(tasks).ConfigureAwait(false);
 
             if (errorMessageContainer.HasErrors)
             {
