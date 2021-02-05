@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2050
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GojulValidation", "GojulValidation\GojulValidation.csproj", "{E8C6ABC6-E948-41BB-8E4C-508B5C9CE35E}"
 EndProject
@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GojulExtensions", "GojulExt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GojulExtensions.Tests", "GojulExtensions.Tests\GojulExtensions.Tests.csproj", "{BF0F9478-AB42-42CE-91A4-E81A17BC65C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GojulHttpUtils", "GojulHttpUtils\GojulHttpUtils.csproj", "{F327E27A-5C7F-43AD-976F-3CF7ADE06E2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GojulHttpUtils", "GojulHttpUtils\GojulHttpUtils.csproj", "{F327E27A-5C7F-43AD-976F-3CF7ADE06E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GojulHttpUtils.Tests", "GojulHttpUtils.Tests\GojulHttpUtils.Tests.csproj", "{52CBB8F3-6FE9-439D-859E-2B8E949D6BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GojulHttpUtils.Tests", "GojulHttpUtils.Tests\GojulHttpUtils.Tests.csproj", "{52CBB8F3-6FE9-439D-859E-2B8E949D6BE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
